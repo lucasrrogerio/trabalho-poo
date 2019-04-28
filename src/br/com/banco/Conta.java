@@ -19,6 +19,14 @@ abstract public class Conta {
         this.dataAbertura = dataAbertura;
     }
 
+    public Cliente getTitularConta() {
+		return titular;
+	}
+
+	public double getSaldo() {
+        return this.saldo;
+    }
+    
     public boolean sacar(double valor) {
         if (valor <= this.saldo) {
             this.saldo -= valor;
@@ -31,7 +39,7 @@ abstract public class Conta {
     public void depositar(double valor) {
         this.saldo += valor;
     }
-
+    
     abstract public double calcularRendimento(int periodo);
 
     abstract public double calcularTributacao(int periodo);
@@ -45,15 +53,9 @@ abstract public class Conta {
         return false;
     }
 
-    public double getSaldo() {
-        return this.saldo;
-    }
-
     public double calcularSaldoFuturo(int periodo) {
 
-        return this.saldo *
-            (1 + this.calcularRendimento(periodo) -
-            this.calcularTributacao(periodo));
+        return this.saldo * (1 + this.calcularRendimento(periodo) - this.calcularTributacao(periodo));
 
     }
 }
