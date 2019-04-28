@@ -3,7 +3,7 @@ package br.com.banco;
 /**
  * Seguro de Vida
  */
-public class SegurodeVida implements Tributavel {
+public class SegurodeVida implements Tributavel, Ativo {
 
 	private int apolice;
 	private Cliente titular;
@@ -44,7 +44,7 @@ public class SegurodeVida implements Tributavel {
 	}
 	
 	public String getTipo() {
-		return this.getTipo();
+		return "Imposto do Seguro de Vida";
 	}
 	
 }

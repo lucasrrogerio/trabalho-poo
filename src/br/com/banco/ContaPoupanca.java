@@ -3,7 +3,7 @@ package br.com.banco;
 /**
  * Conta
  */
-public class ContaPoupanca extends Conta {
+public class ContaPoupanca extends Conta implements Ativo {
 
     public ContaPoupanca(Cliente titular, int numero, String agencia, String dataAbertura) {
         super(titular, numero, agencia, dataAbertura);

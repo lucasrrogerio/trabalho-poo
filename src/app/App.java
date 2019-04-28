@@ -8,20 +8,27 @@ public class App {
 
         Cliente cliente1 = new Cliente("Flavio", "Seixas", "12345678910");
 
-        Conta conta1 = new ContaCorrente(cliente1, 1, "UFF", "03/01/2019");
-        Conta conta2 = new ContaPoupanca(cliente1, 1, "UFF", "03/01/2019");
+        ContaCorrente conta1 = new ContaCorrente(cliente1, 1, "UFF", "03/01/2019");
+        ContaPoupanca conta2 = new ContaPoupanca(cliente1, 1, "UFF", "03/01/2019");
         SegurodeVida seguro = new SegurodeVida(1, cliente1);
         
 		conta1.depositar(1000); 
 		conta2.depositar(1000);
 		seguro.setValor(1000);
 		
-		Tributavel a = (Tributavel) conta1;
-		Tributavel c = (Tributavel) seguro;
+		Ativo[] ativos = new Ativo[3];
+		ativos[0] = conta1;
+		ativos[1] = conta2;
+		ativos[2] = seguro;
 		
-		System.out.println(a.getValorImposto());
-		System.out.println(c.getValorImposto());
-
+		for(int i = 0; i < ativos.length; i++) {
+			if (ativos[i] instanceof Tributavel) {
+				System.out.println(((Tributavel) ativos[i]).getValorImposto());
+			} else {
+				System.out.println("Ativo não tributável!");
+			}
+		}
+		
     }
     
 }

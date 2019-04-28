@@ -3,7 +3,7 @@ package br.com.banco;
 /**
  * Conta
  */
-public class ContaCorrente extends Conta implements Tributavel {
+public class ContaCorrente extends Conta implements Tributavel, Ativo {
 
     public ContaCorrente(Cliente titular, int numero, String agencia, String dataAbertura) {
         super(titular, numero, agencia, dataAbertura);
@@ -26,7 +26,7 @@ public class ContaCorrente extends Conta implements Tributavel {
 	}
 	
 	public String getTipo() {
-		return null;
+		return "Imposto da Conta Corrente";
 	}
 
 }
