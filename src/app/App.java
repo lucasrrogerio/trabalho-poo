@@ -1,5 +1,7 @@
 package app;
 
+import java.io.ObjectInputStream.GetField;
+
 import br.com.banco.*;
 
 public class App {
@@ -16,12 +18,23 @@ public class App {
 		conta2.depositar(1000);
 		seguro.setValor(1000);
 		
+		//PRIMEIRA PARTE
+		Tributavel a = (Tributavel) conta1;
+		Tributavel b = (Tributavel) seguro;
+		
+		System.out.println(a.getTipo()+": "+a.getValorImposto());
+		System.out.println(b.getTipo()+": "+b.getValorImposto());
+		
+		System.out.println();
+		
+		//SEGUNDA PARTE
 		Ativo[] ativos = new Ativo[3];
 		ativos[0] = conta1;
 		ativos[1] = conta2;
 		ativos[2] = seguro;
 		
 		for(int i = 0; i < ativos.length; i++) {
+			System.out.print(ativos[i].getClass().getSimpleName()+": ");
 			if (ativos[i] instanceof Tributavel) {
 				System.out.println(((Tributavel) ativos[i]).getValorImposto());
 			} else {
