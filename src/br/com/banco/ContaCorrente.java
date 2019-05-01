@@ -22,7 +22,7 @@ public class ContaCorrente extends Conta implements Tributavel, Ativo {
 	}
 
 	public String getTitular() {
-		return getTitularConta().toString();
+		return super.getTitular();
 	}
 	
 	public String getTipo() {

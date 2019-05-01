@@ -1,14 +1,12 @@
 package app;
 
-import java.io.ObjectInputStream.GetField;
-
 import br.com.banco.*;
 
 public class App {
 	
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
-        Cliente cliente1 = new Cliente("Flavio", "Seixas", "12345678910");
+        Cliente cliente1 = new Cliente("Lucas", "Rogerio", "12345678910");
 
         ContaCorrente conta1 = new ContaCorrente(cliente1, 1, "UFF", "03/01/2019");
         ContaPoupanca conta2 = new ContaPoupanca(cliente1, 1, "UFF", "03/01/2019");
@@ -24,6 +22,7 @@ public class App {
 		
 		System.out.println(a.getTipo()+": "+a.getValorImposto());
 		System.out.println(b.getTipo()+": "+b.getValorImposto());
+		System.out.println(conta1.getTitular());
 		
 		System.out.println();
 		

@@ -19,9 +19,9 @@ abstract public class Conta {
         this.dataAbertura = dataAbertura;
     }
 
-    public Cliente getTitularConta() {
-		return titular;
-	}
+    public String getTitular() {
+    	return this.titular.toString();
+    }
 
 	public double getSaldo() {
         return this.saldo;
